@@ -5,9 +5,3 @@
 import { createStore, combineReducers, compose, applyMiddleware } from 'redux'
 
 import reducers from './reducers'
-
-
-// const appleMiddleware = store => next => action => {
-//     console.log();
-//     // 
-// }
