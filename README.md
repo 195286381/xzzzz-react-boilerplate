@@ -1,5 +1,5 @@
-### Xzzzzz-React-Boileplate
+# Xzzzzz-React-Boileplate
 
-#### 自用 React 技术栈 boileplate
+## 自用 React 技术栈 boileplate
 
-**React+Redux+React-Router**
+**采用React+Redux+React-Router**
