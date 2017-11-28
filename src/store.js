@@ -4,8 +4,8 @@ import { reducer as filter } from './filter'
 import { reducer as todos } from './todos'
 
 const reducers = combineReducers({
-    filter,
-    todos
+  filter,
+  todos
 })
 
 const store = createStore(reducers)
