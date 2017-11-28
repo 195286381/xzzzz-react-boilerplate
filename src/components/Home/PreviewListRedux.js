@@ -16,6 +16,9 @@ const LOAD_ARTICLE_SUCCESS = 'LOAD_ARTICLE_SUCCESS'
 const LOAD_ARTICLE_ERROR = 'LOAD_ARTICLE_ERROR'
 
 // actions
+const loadArticle = () => {
+
+}
 
 // reducer
 const reducer = (state = initialState, action) => {
