@@ -8,7 +8,7 @@ const reducer = (state = initialState, action) => {
   switch(action.type) {
     case actionTypes.CHANGE_FILTER: {
       return {
-        filter: action.payload.filter
+        filter: action.payload.filter,
       }
     }
     default: return state

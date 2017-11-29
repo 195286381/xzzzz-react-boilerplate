@@ -7,7 +7,7 @@ import {
   BrowserRouter as Router,
   Route,
   Link,
-  Switch
+  Switch,
 } from 'react-router-dom'
 
 import Frame from '../layouts/Frame'

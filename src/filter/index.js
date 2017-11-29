@@ -5,5 +5,5 @@ import view from './views/filter'
 export {
   actions,
   reducer,
-  view
+  view,
 }
