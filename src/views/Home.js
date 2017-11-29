@@ -1,7 +1,29 @@
-import React from 'react'
+import React, { Component } from 'react'
+import PreviewList from '../components/Home/PreviewList'
+import { connect } from 'react-redux'
 
-const Home = () => (
-  <div>Home</div>
-)
+import {actions } from './HomeRedux'
+import { push } from 'react-router-redux'
 
-export default Home
+class Home extends Component {
+  render() {
+    const { loadArticles, articleList, push } = this.props
+
+    return (
+      <div>
+        <h1>Home</h1>
+        <PreviewList {...this.props}/>
+      </div>
+    )
+  }
+}
+
+export default connect(
+  state => ({
+    articleList: state.home.list.articleList,
+  }),
+  {
+    push,
+    actions,
+  }
+)(Home)
