@@ -11,4 +11,3 @@ export default reducers
 export const actions = {
   loadArticles,
 }
-

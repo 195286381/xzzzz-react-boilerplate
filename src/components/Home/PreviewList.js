@@ -15,23 +15,24 @@ class PreviewList extends Component {
 
   componentDidMount() {
     const { loadArticles } = this.props
+    loadArticles()
   }
 
   render() {
     const { loading, error, articleList } = this.props
 
     if (loading) {
-
+      return <div>loading</div>
     }
 
     if (error) {
-
+      return <div>error</div>
     }
 
     return (
       <div>
         {
-          articleList.map(item => (<preview {...item} key={item.id} />))
+          // articleList.map(item => (<preview {...item} key={item.id} />))
         }
       </div>
     )
