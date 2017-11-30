@@ -1,3 +1,7 @@
+/**
+ * 开发环境使用的 configure store
+ */
+
 import { createStore, combineReducers, compose, applyMiddleware } from 'redux'
 import ThunkMiddleware from 'redux-thunk'
 import createFetchMiddleware from 'redux-composable-fetch'
@@ -18,7 +22,6 @@ const FetchMiddleware = createFetchMiddleware({
 const finalCreateStore = compose(
   applyMiddleware(
     ThunkMiddleware,
-    FetchMiddleware,
   ),
   DevTools.instrument()
 )(createStore)

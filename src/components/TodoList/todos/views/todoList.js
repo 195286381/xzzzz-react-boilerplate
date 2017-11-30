@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 import TodoItem from './todoItem'
 import * as actions from '../actions'
 import { toggleTodo, removeTodo } from  '../actions'
-import { FilterTypes } from '../../constants'
+import { FilterTypes } from '../../../../constants'
 
 const TodoList = ({ todos, filter, onToggleTodo, onRemoveTodo }) => {
   const visibleTodos = selectVisibleTodos(todos, filter)

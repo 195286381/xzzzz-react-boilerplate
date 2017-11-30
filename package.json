@@ -26,6 +26,8 @@
     "fs-extra": "3.0.1",
     "html-webpack-plugin": "2.29.0",
     "jest": "20.0.4",
+    "lodash": "^4.17.4",
+    "material-ui": "^0.19.4",
     "object-assign": "4.1.1",
     "postcss-flexbugs-fixes": "3.2.0",
     "postcss-loader": "2.0.8",
@@ -50,9 +52,12 @@
     "whatwg-fetch": "2.0.3"
   },
   "devDependencies": {
+    "less": "^2.7.3",
+    "less-loader": "^4.0.5",
     "redux-devtools": "^3.4.1",
     "redux-devtools-dock-monitor": "^1.1.2",
-    "redux-devtools-log-monitor": "^1.4.0"
+    "redux-devtools-log-monitor": "^1.4.0",
+    "sass-loader": "^6.0.6"
   },
   "scripts": {
     "start": "node scripts/start.js",

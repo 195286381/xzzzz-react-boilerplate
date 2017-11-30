@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import Preview from './Preview'
 
 class PreviewList extends Component {
   static propTypes = {
@@ -22,7 +23,7 @@ class PreviewList extends Component {
     const { loading, error, articleList } = this.props
 
     if (loading) {
-      return <div>loading</div>
+      return <div>加载中请稍等...</div>
     }
 
     if (error) {
@@ -32,7 +33,7 @@ class PreviewList extends Component {
     return (
       <div>
         {
-          // articleList.map(item => (<preview {...item} key={item.id} />))
+          articleList.map(item => (<Preview {...item} key={item.id} />))
         }
       </div>
     )

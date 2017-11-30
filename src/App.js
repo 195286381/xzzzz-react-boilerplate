@@ -3,18 +3,22 @@ import { Provider } from 'react-redux'
 import Routes from './routes'
 import createStore from './redux/configureStore'
 import DevTools from './redux/DevTools'
+import { MuiThemeProvider } from 'material-ui'
+import './App.css'
 
 const store = createStore()
 
 class App extends Component {
   render() {
     return (
-      <Provider store={store}>
-        <div>
-          <Routes />
-          <DevTools />
-        </div>
-      </Provider>
+      <MuiThemeProvider>
+        <Provider store={store}>
+          <div>
+            <Routes />
+            <DevTools />
+          </div>
+        </Provider>
+      </MuiThemeProvider>
     );
   }
 }

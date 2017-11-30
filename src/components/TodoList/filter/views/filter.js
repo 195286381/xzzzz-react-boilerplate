@@ -1,6 +1,6 @@
 import React from 'react'
 import * as actions from '../actions'
-import { FilterTypes } from '../../constants'
+import { FilterTypes } from '../../../../constants'
 import { connect } from 'react-redux'
 
 const Filter = ({ filter, handleClick }) => {

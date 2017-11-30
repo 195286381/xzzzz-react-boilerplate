@@ -1,5 +1,5 @@
 import * as actionTypes from './actionTypes'
-import { FilterTypes } from '../constants'
+import { FilterTypes } from '../../../constants'
 const initialState = {
   filter: FilterTypes.ALL,
 };

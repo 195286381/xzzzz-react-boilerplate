@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import './Preview.css'
 
-
 class Preview extends Component {
   static propTypes = {
     title: PropTypes.string.isRequired,
@@ -26,8 +25,10 @@ class Preview extends Component {
           </a>
         </h1>
         <span className="date">{this.props.date}</span>
-        <p className="desc">{this.props.description}</p>
+        <p className="desc">{this.props.desc}</p>
       </article>
     )
   }
 }
+
+export default Preview
