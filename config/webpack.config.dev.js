@@ -3,6 +3,7 @@
 const autoprefixer = require('autoprefixer');
 const path = require('path');
 const webpack = require('webpack');
+// 配置 html 模板插件
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
@@ -20,6 +21,8 @@ const publicPath = '/';
 // Omit trailing slash as %PUBLIC_PATH%/xyz looks better than %PUBLIC_PATH%xyz.
 const publicUrl = '';
 // Get environment variables to inject into our app.
+
+// 获取环境变量注入到环境
 const env = getClientEnvironment(publicUrl);
 
 // This is the development configuration.
@@ -33,6 +36,8 @@ module.exports = {
   // This means they will be the "root" imports that are included in JS bundle.
   // The first two entry points enable "hot" CSS and auto-refreshes for JS.
   entry: [
+    // 添加对 react 热加载的支持
+    'react-hot-loader/patch',
     // We ship a few polyfills by default:
     require.resolve('./polyfills'),
     // Include an alternative client for WebpackDevServer. A client's job is to
@@ -149,6 +154,11 @@ module.exports = {
               // It enables caching results in ./node_modules/.cache/babel-loader/
               // directory for faster rebuilds.
               cacheDirectory: true,
+
+              // 添加对热价在的支持
+              plugins: [
+                'react-hot-loader/babel'
+              ],
             },
           },
           // "postcss" loader applies autoprefixer to our CSS.
@@ -186,6 +196,7 @@ module.exports = {
                   ],
                 },
               },
+              // 添加对 less 语法预处理的支持
               "less-loader",
             ],
           },
@@ -228,6 +239,7 @@ module.exports = {
     // if (process.env.NODE_ENV === 'development') { ... }. See `./env.js`.
     new webpack.DefinePlugin(env.stringified),
     // This is necessary to emit hot updates (currently CSS only):
+    // webpack 热替换插件
     new webpack.HotModuleReplacementPlugin(),
     // Watcher doesn't work well if you mistype casing in a path so we use
     // a plugin that prints an error when you attempt to do this.
@@ -256,7 +268,7 @@ module.exports = {
   },
   // Turn off performance hints during development because we don't do any
   // splitting or minification in interest of speed. These warnings become
-  // cumbersome.
+  // cumbersome (笨重的).
   performance: {
     hints: false,
   },

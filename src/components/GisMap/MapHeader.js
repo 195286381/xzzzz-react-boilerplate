@@ -1,6 +1,6 @@
 import React from 'react'
 import './MapHeader.less'
-import earthImage from '../../static/earth.png'
+import earthImage from '../../static/images/earth.png'
 import { RaisedButton } from 'material-ui'
 
 const style = {

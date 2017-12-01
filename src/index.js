@@ -5,5 +5,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './App'
+import { AppContainer } from 'react-hot-loader'
 
-ReactDOM.render(<App />, document.getElementById('root'))
+ReactDOM.render(
+  <AppContainer>
+    <App />
+  </AppContainer>
+  , document.getElementById('root'))
