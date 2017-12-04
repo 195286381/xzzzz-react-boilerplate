@@ -1,6 +1,7 @@
 const CHANGE_FILTER_CONTENT = 'CHANGE_FILTER_CONTENT'
 const LOAD_LAYERS = 'LOAD_LAYERS'
 
+// 初始化状态
 const initialState = {
   filterContent: '',
   dataSource: [
@@ -10,21 +11,17 @@ const initialState = {
 // 模拟数据
 const mokerDataSource = [
   {
-    key: 1,
     layerName: 'vniu_test_lte_weakcover_20170951m_tunnel_hr',
   },
   {
-    key: 2,
     layerName: 'vniu_test_lte_sector_20170951m_cellvalue',
   },
   {
-    key: 3,
     layerName: 'vniu_test_lte_avgrsrp_20171051m_grid_hw',
   },
   {
-    key:4,
-    layerName: 'vniu_test_lte_weakcover_20171051m_section_hw'
-  }
+    layerName: 'vniu_test_lte_weakcover_20171051m_section_hw',
+  },
 ]
 
 export const changeFilter = (text) => {
@@ -36,15 +33,24 @@ export const changeFilter = (text) => {
   }
 }
 
+// 加载图层
 export const loadLayer = () => {
+  let uniqueKey = 1;
+
+  const addUniqueKey = dataSource => {
+    return dataSource.map(data => {
+      return {...data, key: uniqueKey++}
+    })
+  }
   return {
     type: LOAD_LAYERS,
     payload: {
-      dataSource: mokerDataSource,
+      dataSource: addUniqueKey(mokerDataSource),
     }
   }
 }
 
+// 负责处理状态的修改
 const reducer = (state = initialState, action) => {
   switch(action.type) {
 
@@ -69,4 +75,5 @@ const reducer = (state = initialState, action) => {
   }
 }
 
+// 导出 reducer
 export default reducer
