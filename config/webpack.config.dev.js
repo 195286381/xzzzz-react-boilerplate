@@ -37,7 +37,7 @@ module.exports = {
   // The first two entry points enable "hot" CSS and auto-refreshes for JS.
   entry: [
     // 添加对 react 热加载的支持
-    'react-hot-loader/patch',
+    // 'react-hot-loader/patch',
     // We ship a few polyfills by default:
     require.resolve('./polyfills'),
     // Include an alternative client for WebpackDevServer. A client's job is to
@@ -156,9 +156,9 @@ module.exports = {
               cacheDirectory: true,
 
               // 添加对热价在的支持
-              plugins: [
-                'react-hot-loader/babel'
-              ],
+              // plugins: [
+              //   'react-hot-loader/babel'
+              // ],
             },
           },
           // "postcss" loader applies autoprefixer to our CSS.
@@ -237,8 +237,9 @@ module.exports = {
     new webpack.NamedModulesPlugin(),
     // Makes some environment variables available to the JS code, for example:
     // if (process.env.NODE_ENV === 'development') { ... }. See `./env.js`.
-    new webpack.DefinePlugin(env.stringified),
+    new webpack.DefinePlugin({...env.stringified, ...{ol: 'ol'}}),
     // This is necessary to emit hot updates (currently CSS only):
+
     // webpack 热替换插件
     new webpack.HotModuleReplacementPlugin(),
     // Watcher doesn't work well if you mistype casing in a path so we use
@@ -256,6 +257,10 @@ module.exports = {
     // https://github.com/jmblog/how-to-optimize-momentjs-with-webpack
     // You can remove this if you don't use Moment.js:
     new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
+
+    // new webpack.ProvidePlugin({
+    //   'ol': 'https://cdn.bootcss.com/openlayers/4.5.0/ol.js'
+    // })
   ],
   // Some libraries import Node modules but don't use them in the browser.
   // Tell Webpack to provide empty mocks for them so importing them works.

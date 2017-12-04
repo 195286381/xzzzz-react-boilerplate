@@ -3,12 +3,12 @@ import './GisMap.less'
 
 import MapHeader from '../components/GisMap/MapHeader'
 import MapContent from '../components/GisMap/MapContent'
-// import MapSiderbar from '../components/GisMap/MapSiderbar'
+import MapSiderbar from '../components/GisMap/MapSiderbar'
 const GisMap = () => {
   return (
     <div className="map-contaienr">
       <MapHeader />
-      {/* <MapSiderbar /> */}
+      <MapSiderbar />
       <MapContent />
     </div>
   )

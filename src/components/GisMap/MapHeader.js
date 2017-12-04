@@ -11,22 +11,49 @@ const style = {
   }
 }
 
-const MapHeader = () => (
-  <div className="Map-Header">
-    <div className="Map-Header-Left">
-      <img src={earthImage} alt="地图"/>
-      <span>WMS</span>
+const MapHeader = ({ loginFlag, onClick }) => {
+  return (
+    <div className="Map-Header">
+      <div className="Map-Header-Left">
+        <img src={earthImage} alt="地图"/>
+        <span>WMS</span>
+      </div>
+      <div className="Map-Header-right">
+        {
+          (function() {
+            if (loginFlag) {
+              return (
+                <RaisedButton
+                  label="登出"
+                  style={style.button}
+                  secondary={true}
+
+                  onClick={() => {onClick()}}
+                />
+              )
+            } else {
+              return (
+                <RaisedButton
+                  label="退出"
+                  primary={true}
+                  secondary={true}
+                  style={style.button}
+                  onClick={() => {onClick()}}
+                />
+              )
+            }
+          })()
+        }
+      </div>
     </div>
-    <div className="Map-Header-right">
-      <RaisedButton
-        label="登陆"
-        style={style.button}
-        primary={true}
-        onClick={() => {alert('login')}}
-      />
-      <RaisedButton label="退出" secondary={true} style={style.button}/>
-    </div>
-  </div>
-)
+  )
+}
+
+MapHeader.defaultProps = {
+  loginFlag: true,
+  onClick: function() {
+    alert('onClick')
+  }
+}
 
 export default MapHeader
