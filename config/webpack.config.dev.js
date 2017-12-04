@@ -242,7 +242,7 @@ module.exports = {
     new webpack.NamedModulesPlugin(),
     // Makes some environment variables available to the JS code, for example:
     // if (process.env.NODE_ENV === 'development') { ... }. See `./env.js`.
-    new webpack.DefinePlugin({...env.stringified, ...{ol: 'ol'}}),
+    new webpack.DefinePlugin(env.stringified),
     // This is necessary to emit hot updates (currently CSS only):
 
     // webpack 热替换插件
