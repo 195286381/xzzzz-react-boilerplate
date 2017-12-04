@@ -1,7 +1,10 @@
 import React from 'react'
 import './MapHeader.less'
 import earthImage from '../../static/images/earth.png'
-import { RaisedButton } from 'material-ui'
+
+import userPic from '../../static/images/user.png'
+
+import { Popover } from 'antd'
 
 const style = {
   button: {
@@ -11,6 +14,26 @@ const style = {
   }
 }
 
+const text = (
+  <div
+    style={{textAlign: 'center'}}
+  >
+    当前用户: Admin
+  </div>
+)
+
+const content = (
+  <div>
+    <div
+      className="map-header-loginout"
+      style={{
+        textAlign: 'center'
+      }}
+    >登出账户</div>
+  </div>
+
+)
+
 const MapHeader = ({ loginFlag, onClick }) => {
   return (
     <div className="Map-Header">
@@ -18,33 +41,12 @@ const MapHeader = ({ loginFlag, onClick }) => {
         <img src={earthImage} alt="地图"/>
         <span>WMS</span>
       </div>
-      <div className="Map-Header-right">
-        {
-          (function() {
-            if (loginFlag) {
-              return (
-                <RaisedButton
-                  label="登出"
-                  style={style.button}
-                  secondary={true}
+      <Popover placement="bottomRight" title={text} content={content} trigger="click">
+        <div className="Map-Header-right">
+          <img src={userPic} alt="用户"/>
+        </div>
+      </Popover>
 
-                  onClick={() => {onClick()}}
-                />
-              )
-            } else {
-              return (
-                <RaisedButton
-                  label="退出"
-                  primary={true}
-                  secondary={true}
-                  style={style.button}
-                  onClick={() => {onClick()}}
-                />
-              )
-            }
-          })()
-        }
-      </div>
     </div>
   )
 }

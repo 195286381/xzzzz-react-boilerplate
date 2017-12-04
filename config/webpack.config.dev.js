@@ -155,10 +155,15 @@ module.exports = {
               // directory for faster rebuilds.
               cacheDirectory: true,
 
-              // 添加对热价在的支持
-              // plugins: [
-              //   'react-hot-loader/babel'
-              // ],
+              plugins: [
+                // antd 组件按需引用
+                [
+                  'import',
+                  [{ libraryName: 'antd', style: true }]
+                ],
+                // react 热加载支持
+                'react-hot-loader/babel'
+              ],
             },
           },
           // "postcss" loader applies autoprefixer to our CSS.

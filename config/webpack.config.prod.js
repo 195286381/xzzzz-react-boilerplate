@@ -127,6 +127,16 @@ module.exports = {
           },
         ],
         include: paths.appSrc,
+        // 添加 antd 支持
+        query: {
+          plugins: [
+            ["import",{"libraryName":"antd","style":"css"}]
+          ],
+        // This is a feature of `babel-loader` for webpack (not Babel itself).
+        // It enables caching results in ./node_modules/.cache/babel-loader/
+        // directory for faster rebuilds.
+        cacheDirectory: true,
+        },
       },
       {
         // "oneOf" will traverse all following loaders until one will

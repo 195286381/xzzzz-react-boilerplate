@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 
 import './MapSiderbar.less'
 
+import LayerTable from './LayerTable'
+
 class MapSiderbar extends Component {
   constructor() {
     super(...arguments)
@@ -11,6 +13,11 @@ class MapSiderbar extends Component {
       // 边栏是否打开
       isOpen: true,
     }
+  }
+
+  isShowSiderbar() {
+    // 判断是否显示
+    const { isOpen } = this.state
   }
 
   // 处理边栏的点击事件
@@ -25,9 +32,8 @@ class MapSiderbar extends Component {
     return (
       <div className="mapsiderbar">
         <div className="mapsiderbar-container">
-          这个是边栏
+          <LayerTable />
           <div className="mapsidervar-btn" />
-          children
         </div>
       </div>
     )
@@ -35,3 +41,6 @@ class MapSiderbar extends Component {
 }
 
 export default MapSiderbar
+
+
+// Ant Design of React

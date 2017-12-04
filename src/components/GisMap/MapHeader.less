@@ -1,4 +1,10 @@
+// 头部
 .Map-Header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
   display: flex;
   height: 50px;
   justify-content: space-between;
@@ -13,6 +19,7 @@
   }
 }
 
+// 头部左侧
 .Map-Header-Left {
   margin-left: 20px;
   display: flex;
@@ -20,6 +27,7 @@
   color: white;
 }
 
+// 头部左侧 span
 .Map-Header-Left span {
   text-align: center;
   line-height: 25px;
@@ -27,5 +35,11 @@
 }
 
 .Map-Header-right {
+  padding: 10px 20px;
   // align-self: flex-end;
+}
+
+.Map-Header-right:hover {
+  cursor: pointer;
+  opacity: .8;
 }
