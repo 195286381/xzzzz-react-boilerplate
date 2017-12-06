@@ -3,6 +3,7 @@
  */
 
 import React from 'react'
+
 import {
   BrowserRouter as Router,
   Route,
@@ -15,15 +16,19 @@ import Home from '../views/Home'
 import Detail from '../views/Detail'
 import TodoList from '../views/TodoList'
 import GisMap from '../views/GisMap'
+import Login from '../views/Login'
+import Menu from '../views/Menu'
 
 const routes =() => (
   <Router>
     {/* <Frame> */}
       <Switch>
-        <Route exact path="/" component={Home}/>
+        <Route exact path="/home" component={Home}/>
         <Route exact path="/detail" component={Detail}/>
         <Route exact path="/todoList" component={TodoList}/>
+        <Route exact path="/menu" component={Menu}/>
         <Route exact path="/gisMap" component={GisMap}/>
+        <Route exact path="/" component={Login}/>
       </Switch>
     {/* </Frame> */}
   </Router>

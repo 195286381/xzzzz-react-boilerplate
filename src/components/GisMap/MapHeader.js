@@ -1,7 +1,8 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+
 import './MapHeader.less'
 import earthImage from '../../static/images/earth.png'
-
 import userPic from '../../static/images/user.png'
 
 import { Popover } from 'antd'
@@ -29,7 +30,7 @@ const content = (
       style={{
         textAlign: 'center'
       }}
-    >登出账户</div>
+    ><Link to="/">退出登陆</Link></div>
   </div>
 
 )
