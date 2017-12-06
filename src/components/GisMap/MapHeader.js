@@ -39,8 +39,10 @@ const MapHeader = ({ loginFlag, onClick }) => {
   return (
     <div className="Map-Header">
       <div className="Map-Header-Left">
-        <img src={earthImage} alt="地图"/>
-        <span>WMS</span>
+        <Link to="/menu">
+          <img src={earthImage} alt="地图"/>
+          <span>WMS</span>
+        </Link>
       </div>
       <Popover placement="bottomRight" title={text} content={content} trigger="click">
         <div className="Map-Header-right">

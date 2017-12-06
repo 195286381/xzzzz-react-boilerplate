@@ -17,12 +17,13 @@ class GisMap extends Component {
   }
 
   render() {
-    const { dataSource } = this.props
+    const { dataSource, selectLayer } = this.props
     return (
       <div className="map-contaienr">
         <MapHeader />
         <MapSiderbar
           dataSource={dataSource}
+          selectLayer={selectLayer}
         />
         <MapContent />
       </div>
@@ -37,7 +38,8 @@ const mapStateToProps = (state, ownerProps) => {
 
 const mapDispatchToProps = (dispatch, ownerProps) => {
   return {
-    loadDataSource: () => dispatch(actions.loadLayer())
+    loadDataSource: () => dispatch(actions.loadLayer()),
+    selectLayer: (key) => dispatch(actions.selectLayer(key)),
   }
 }
 

@@ -31,11 +31,11 @@ class MapSiderbar extends Component {
   }
 
   render() {
-    const { dataSource } = this.props
+    const { dataSource, selectLayer } = this.props
     return (
       <div className="mapsiderbar">
         <div className="mapsiderbar-container">
-          <LayerTable dataSource={dataSource}/>
+          <LayerTable dataSource={dataSource} selectLayer={selectLayer}/>
           <div className="mapsidervar-btn" />
         </div>
       </div>

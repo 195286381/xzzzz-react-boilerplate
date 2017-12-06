@@ -1,11 +1,11 @@
-const CHANGE_FILTER_CONTENT = 'CHANGE_FILTER_CONTENT'
+const SELECTE_LAYER = 'SELECTE_LAYER'
 const LOAD_LAYERS = 'LOAD_LAYERS'
-
 // 初始化状态
 const initialState = {
   dataSource: [
   ]
 }
+
 
 // 模拟数据
 const mokerDataSource = [
@@ -23,18 +23,18 @@ const mokerDataSource = [
   },
 ]
 
-export const changeFilter = (text) => {
+export const selectLayer = (key) => {
   return {
-    type: CHANGE_FILTER_CONTENT,
+    type: SELECTE_LAYER,
     payload: {
-      filterContent: text,
+      key,
     },
   }
 }
 
 // 加载图层
 export const loadLayer = () => {
-  let uniqueKey = 1;
+  let uniqueKey = 1;8
 
   const addUniqueKey = dataSource => {
     return dataSource.map(data => {
@@ -53,10 +53,20 @@ export const loadLayer = () => {
 const reducer = (state = initialState, action) => {
   switch(action.type) {
 
-    case CHANGE_FILTER_CONTENT: {
+    case SELECTE_LAYER: {
       return {
-        ...state,
-        filterContent: action.payload.filterContent
+        dataSource: [
+          ...state.dataSource.map(data => {
+            if (data.key === action.payload.key) {
+              return {
+                ...data,
+                selected: !data.selected,
+              }
+            } else {
+              return data
+            }
+          })
+        ]
       }
     }
 

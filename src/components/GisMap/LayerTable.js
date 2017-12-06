@@ -19,6 +19,7 @@ const columns = [
     dataIndex: 'selected',
     width: 50,
     render: (text, recode) => {
+      debugger;
       let icon
       if (text) {
         icon = blueEye
@@ -92,11 +93,42 @@ class LayerTable extends Component {
 
   render() {
     // const { dataSource } = this.props
+    const { selectLayer } = this.props
+    debugger;
     const filtedDataSource = this.handleFilterChange()
     return (
       <Table
         // 列设置
-        columns={columns}
+        columns={
+          [
+            {
+              title: '图层名',
+              dataIndex: 'layerName',
+              key: 'layerName',
+              className: 'layer-table-column'
+            },
+            {
+              title: '操作',
+              dataIndex: 'selected',
+              width: 50,
+              render: (text, recode) => {
+                debugger;
+                let icon
+                if (text) {
+                  icon = blueEye
+                } else {
+                  icon = grayEye
+                }
+
+                return (
+                  <img className="layer-operator-button" src={icon} onClick={() => {selectLayer(recode.key)}}/>
+                 )
+              },
+              // 设置 className, 给操作列定义样式.
+              className: 'layer-table-column-operator'
+            },
+          ]
+        }
         // 数据源
         dataSource={filtedDataSource}
         // 设置标题
