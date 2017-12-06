@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
 
-import LayerTablereducer, * as LayerTabelActions from '../components/GisMap/LayerTableRedux'
+import LayerTablereducer, { loadLayer, } from '../components/GisMap/LayerTableRedux'
 
 const reducers = combineReducers({
   layerTabel: LayerTablereducer,
@@ -9,5 +9,5 @@ const reducers = combineReducers({
 export default reducers
 
 export const actions = {
-  ...LayerTabelActions,
+  loadLayer
 }

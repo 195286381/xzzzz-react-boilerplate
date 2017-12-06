@@ -5,6 +5,9 @@ import './MapSiderbar.less'
 import LayerTable from './LayerTable'
 
 class MapSiderbar extends Component {
+  static defaultProps = {
+    dataSource: [],
+  }
   constructor() {
     super(...arguments)
 
@@ -28,11 +31,11 @@ class MapSiderbar extends Component {
   }
 
   render() {
-    const { children } = this.props
+    const { dataSource } = this.props
     return (
       <div className="mapsiderbar">
         <div className="mapsiderbar-container">
-          <LayerTable />
+          <LayerTable dataSource={dataSource}/>
           <div className="mapsidervar-btn" />
         </div>
       </div>
@@ -41,6 +44,4 @@ class MapSiderbar extends Component {
 }
 
 export default MapSiderbar
-
-
 // Ant Design of React

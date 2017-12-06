@@ -3,7 +3,6 @@ const LOAD_LAYERS = 'LOAD_LAYERS'
 
 // 初始化状态
 const initialState = {
-  filterContent: '',
   dataSource: [
   ]
 }
@@ -39,7 +38,7 @@ export const loadLayer = () => {
 
   const addUniqueKey = dataSource => {
     return dataSource.map(data => {
-      return {...data, key: uniqueKey++}
+      return {...data, key: uniqueKey++, selected: false}
     })
   }
   return {
@@ -63,14 +62,11 @@ const reducer = (state = initialState, action) => {
 
     case LOAD_LAYERS: {
       return {
-        ...state,
-        dataSource: {
+        dataSource: [
           ...action.payload.dataSource,
-          selected: false,
-        }
+        ],
       }
     }
-
     default: return state
   }
 }
