@@ -94,7 +94,6 @@ class LayerTable extends Component {
   render() {
     // const { dataSource } = this.props
     const { selectLayer } = this.props
-    debugger;
     const filtedDataSource = this.handleFilterChange()
     return (
       <Table
@@ -112,7 +111,6 @@ class LayerTable extends Component {
               dataIndex: 'selected',
               width: 50,
               render: (text, recode) => {
-                debugger;
                 let icon
                 if (text) {
                   icon = blueEye

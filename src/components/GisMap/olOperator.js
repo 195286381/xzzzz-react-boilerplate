@@ -1,8 +1,14 @@
+/**
+ * @author ZTE_10191772
+ * 处理整个 GIS 图层的操作.
+ */
+
 import Map from 'ol/map'
 import View from 'ol/view'
 import Tile from 'ol/layer/tile'
 import XYZ from 'ol/source/xyz'
 import proj from 'ol/proj'
+
 
 // 加载高德地图
 const gaodeMapLayer = new Tile({
@@ -38,6 +44,8 @@ function addLayer(url, layers, cqlFilter) {
   })
   map.addLayer(newLayer)
   globalLayers.push(newLayer)
+  // 返回该图层的索引.
+  return newLayer
 }
 
 // 删除所有图层
@@ -55,27 +63,30 @@ function removeLayer(layer) {
   map.removeLayer(layer)
 }
 
-/* 导出地图相关操作的接口 */
+function init(options) {
+  if (!this._map) {
+    this._map = map
+  }
+  const id = options.id;
+  map = new Map({
+    target: id,
+    layers: [
+      gaodeMapLayer
+    ],
+    view: new View({
+      center: proj.fromLonLat([104.02524948120117, 30.57822351518676]),
+      zoom: 10,
+    }),
+  });
+}
 
+/* 导出地图相关操作的接口 */
 const operator = {
   _map: null,
-  init: function(options) {
-    if (!this._map) {
-      this._map = map
-    }
-    const id = options.id;
-    map = new Map({
-      target: id,
-      layers: [
-        gaodeMapLayer
-      ],
-      view: new View({
-        center: proj.fromLonLat([104.02524948120117, 30.57822351518676]),
-        zoom: 10,
-      }),
-    // overlays: [overlay]
-    });
-  }
+  init,
+  addLayer,
+  removeLayer,
+  removeAllLayers,
 }
 
 export default operator
