@@ -18,6 +18,7 @@ import TodoList from '../views/TodoList'
 import GisMap from '../views/GisMap'
 import Login from '../views/Login'
 import Menu from '../views/Menu'
+import GisMonitor from '../views/GisMonitor'
 
 const routes =() => (
   <Router>
@@ -28,6 +29,7 @@ const routes =() => (
         <Route exact path="/todoList" component={TodoList}/>
         <Route exact path="/menu" component={Menu}/>
         <Route exact path="/gisMap" component={GisMap}/>
+        <Route exact path="/gisMonitor" component={GisMonitor}/>
         <Route exact path="/" component={Login}/>
       </Switch>
     {/* </Frame> */}
