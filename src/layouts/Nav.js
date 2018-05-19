@@ -17,6 +17,9 @@ const Nav = () => (
       <li>
         <Link to="/gisMap">gis地图</Link>
       </li>
+      <li>
+        <Link to="/crud">crud</Link>
+      </li>
     </ul>
   </div>
 )

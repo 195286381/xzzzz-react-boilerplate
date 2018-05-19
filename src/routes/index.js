@@ -19,7 +19,7 @@ import GisMap from '../views/GisMap'
 import Login from '../views/Login'
 import Menu from '../views/Menu'
 import GisMonitor from '../views/GisMonitor'
-
+import CRUD from '../views/CRUD'
 const routes =() => (
   <Router>
     {/* <Frame> */}
@@ -31,6 +31,7 @@ const routes =() => (
         <Route exact path="/gisMap" component={GisMap}/>
         <Route exact path="/gisMonitor" component={GisMonitor}/>
         <Route exact path="/" component={Login}/>
+        <Route exact path="/crud" component={CRUD}/>
       </Switch>
     {/* </Frame> */}
   </Router>

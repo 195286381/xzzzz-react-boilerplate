@@ -5,7 +5,7 @@ import createStore from './redux/configureStore'
 import DevTools from './redux/DevTools'
 import { MuiThemeProvider } from 'material-ui'
 import './App.css'
-
+import Frame from './layouts/Frame'
 const store = createStore()
 
 class App extends Component {
